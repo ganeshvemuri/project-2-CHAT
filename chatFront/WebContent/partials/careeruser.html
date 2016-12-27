@@ -1,0 +1,124 @@
+
+<html>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+body {
+    background-image: url("http://worldartsme.com/images/career-path-clipart-1.jpg");
+background-repeat:no-repeat;
+background-position:center;
+background-size:800px 900px; 
+
+    
+}
+</style>
+
+<body>
+
+
+    <hr>
+    
+    <h2>Jobs</h2>
+    <span class="clearfix"></span>
+    
+    <hr>
+    
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Role</th>
+        <th>Description</th>
+        <th>Eligibility</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="job in careers">
+      <td>{{job.job_Id}}</td>
+      <td>{{job.job_Role}}</td>
+      <td>{{job.job_Description}}</td>
+      <td>{{job.eligibility}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm "  data-toggle="modal" data-target="#applyjob" ng-click="applyJobs(job)">ApplyJob</button></td>
+         
+      </tr>
+       </tbody>
+</table>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="applyjob" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+      
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Apply Jobs</h4>
+        </div>
+        <div class="modal-body">
+         <form class="form-horizontal">
+  
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="stream">Stream</label>
+    <div class="col-sm-10"> 
+      <textarea class="form-control" id="stream" placeholder="Enter stream" ng-model="stream"></textarea>
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="percentage">Percentage</label>
+    <div class="col-sm-10"> 
+      <textarea class="form-control" id="percentage" placeholder="percentage" ng-model="percentage"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary btn-lg" ng-click="jobapply()" data-target="#confirmation" data-dismiss="modal">Apply</button>
+    </div>
+  </div>
+</form>
+        </div>
+        
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<!-- Modal -->
+  <div class="modal fade" id="confirmation" role="dialog">
+    <div class="modal-dialog">
+    
+     
+      
+          
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Application Status</h4>
+        </div>
+        <div class="modal-body">
+         <strong >You have applied successfully for this job...!!</strong>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>    
+
+    </body>
+  
